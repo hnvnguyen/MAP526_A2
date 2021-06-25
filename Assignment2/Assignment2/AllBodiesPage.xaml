@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assignment2.AllBodiesPage">
+
+    <NavigationPage.TitleView>
+        <Label Text="All Planetary Bodies"
+               TextColor="White" 
+               FontSize="30"/>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="This is a list of all planetary bodies in our Solar System!" 
+                HorizontalOptions="CenterAndExpand"
+                   FontSize="Small"
+                   Padding="5"/>
+
+            <ListView x:Name="allBodiesListView" ItemSelected="allBodiesListView_ItemSelected" RowHeight = "70">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Padding="10,5,10,5">
+                                <Label 
+                                        Text="{Binding englishName}"
+                                        VerticalOptions="Center"
+                                        TextColor="RoyalBlue"  
+                                        FontSize="20"
+                                        ></Label>
+                                <StackLayout Orientation="Horizontal">
+
+                                    <!-- Button Pad -->
+                                    <Label 
+                                        Text="{Binding name, StringFormat='Scientific name: {0}'}"
+                                        TextColor="Black"
+                                        ></Label>
+                                    <Label 
+                                        IsVisible="{Binding isFavourite}"
+                                        Text="Favourite"
+                                        TextColor="Red"
+                                        HorizontalOptions="EndAndExpand"
+                                        ></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assignment2.UpdateFavouritePage">
+    <ContentPage.Content>
+        <StackLayout x:Name="stackLayout" Padding="20">
+            <StackLayout >
+                <Label 
+                Text="{Binding englishName}"
+                HorizontalOptions="CenterAndExpand"
+                FontSize="35"
+                TextColor="Black"
+                FontAttributes="Bold"
+                Padding="10"
+                ></Label>
+                <Label 
+                Text="{Binding name, StringFormat='Scientific name: {0}'}"
+                FontSize="Medium"
+                TextColor="Black"
+                ></Label>
+                <Label 
+                IsVisible="{Binding isPlanet}"
+                Text="{Binding name, StringFormat='{0} is a planet.'}"
+                FontSize="Medium"
+                TextColor="Black"
+                ></Label>
+                <Label 
+                Text="{Binding semimajorAxis, StringFormat='Semi major axis: {0} km'}"
+                FontSize="Medium"
+                TextColor="Black"
+                ></Label>
+                <Label 
+                Text="{Binding gravity, StringFormat='Gravity: {0} m/s2'}"
+                FontSize="Medium"
+                TextColor="Black"
+                ></Label>
+                <Label 
+                Text="{Binding density, StringFormat='Density: {0} g/cm3'}"
+                FontSize="Medium"
+                TextColor="Black"
+                ></Label>
+                <Label 
+                Text="{Binding discoveryDate, StringFormat='Discovery date: {0}'}"
+                FontSize="Medium"
+                TextColor="Black"
+                ></Label>
+                <Label 
+                Text="{Binding discoveredBy, StringFormat='Discovered by: {0}'}"
+                FontSize="Medium"
+                TextColor="Black"
+                ></Label>
+                
+            </StackLayout>
+            <StackLayout Padding="0,30,0,0">
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="3" Color="#1690F4"/>
+                <ScrollView>
+                    <TableView Intent="Form" HasUnevenRows="True">
+                        <TableRoot>
+                            <TableSection Title="Update your notes" TextColor="#1690F4">
+                                <ViewCell>
+                                    <StackLayout HorizontalOptions="StartAndExpand">
+                                        <Editor
+                                        HeightRequest="70"
+                                        x:Name="notesEditor" 
+                                        Placeholder="Add your notes here" 
+                                        Text="{Binding notes}"></Editor>
+
+                                        <Button
+                                        BackgroundColor="Yellow"
+                                        Text="Update"
+                                        Clicked="UpdateFavourite_Clicked"></Button>
+                                    </StackLayout>
+                                </ViewCell>
+                            </TableSection>
+                        </TableRoot>
+
+
+                    </TableView>
+                </ScrollView>
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

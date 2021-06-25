@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assignment2.PictureOfDayPage">
+    <NavigationPage.TitleView>
+        <Label Text="Today's Special!"
+               TextColor="White" 
+               FontSize="30"/>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="body" Padding="20">
+                <Label
+                    Text="{Binding title}"
+                    HorizontalOptions="CenterAndExpand"
+                    FontSize="35"
+                    TextColor="Black"
+                    HorizontalTextAlignment="Center"></Label>
+                <Image Source="{Binding url}"></Image>
+                <Label 
+                    Text="{Binding date, StringFormat='Retrieved on: {0}'}"
+                    HorizontalOptions="EndAndExpand"></Label>
+                <ScrollView>
+                    <Label 
+                    Text="{Binding explanation}"
+                    TextColor="Black"
+                    FontSize="17"
+                    VerticalOptions="Start"></Label>
+                </ScrollView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

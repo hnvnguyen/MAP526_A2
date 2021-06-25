@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assignment2.FavouritesPage">
+    <NavigationPage.TitleView>
+        <Label Text="Your Favourites"
+               TextColor="White" 
+               FontSize="30"/>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="All your favourite planetary bodies are stored here!"
+                HorizontalOptions="CenterAndExpand"
+                   FontSize="Small"
+                   Padding="5"/>
+            <ListView x:Name="favouritesListView" ItemSelected="favouritesListView_ItemSelected" RowHeight = "70">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Padding="10,5,10,5">
+                                <Label 
+                                        Text="{Binding englishName}"
+                                        VerticalOptions="Center"
+                                        TextColor="RoyalBlue"  
+                                        FontSize="20"
+                                        ></Label>
+                                <StackLayout Orientation="Horizontal">
+
+                                    <!-- Button Pad -->
+                                    <Label 
+                                        Text="{Binding name, StringFormat='Scientific name: {0}'}"
+                                        TextColor="Black"
+                                        ></Label>
+                                    <Label 
+                                        IsVisible="{Binding isFavourite}"
+                                        Text="Favourite"
+                                        TextColor="Red"
+                                        HorizontalOptions="EndAndExpand"
+                                        ></Label>
+                                </StackLayout>
+                            </StackLayout>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Delete" IsDestructive="True"
+                                  CommandParameter="{Binding .}"
+                                  Clicked="Delete_Clicked" />
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
